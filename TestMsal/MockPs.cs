@@ -24,11 +24,11 @@ namespace TestMsal
 
         public static IPublicClientApplication PublicClientApp;
 
-        public void CreatePublicClient()
+        public void CreatePublicClient(string authority = null)
         {
             PublicClientApp = PublicClientApplicationBuilder
                 .Create(ClientId)
-                .WithAuthority("https://login.microsoftonline.com/organizations")
+                .WithAuthority(authority ?? "https://login.microsoftonline.com/organizations")
                 .WithRedirectUri("http://localhost:8400")
                 .WithLogging((level, message, pii) =>
                     {
@@ -62,7 +62,6 @@ namespace TestMsal
 
         public AuthenticationResult AcquireTokenInteractive()
         {
-            //return await PublicClientApp.AcquireTokenInteractive(new string[] { "00000002-0000-0000-c000-000000000000//.default" })
             return PublicClientApp.AcquireTokenInteractive(new string[] { "https://management.core.windows.net//.default" })
                         .WithCustomWebUi(new CustomWebUi())
                                       .ExecuteAsync().ConfigureAwait(false).GetAwaiter().GetResult();
@@ -82,6 +81,7 @@ namespace TestMsal
             {
                 Console.WriteLine($"{accounts.Count()} accounts acquired");
             }
+            mock.CreatePublicClient("https://login.microsoftonline.com/5bc0604d-40a5-4aa7-894a-a538fb85dcda/");
             var accessToken = PublicClientApp.AcquireTokenSilent(new string[] { "https://management.core.windows.net//.default" }, accounts.FirstOrDefault()).ExecuteAsync().ConfigureAwait(false).GetAwaiter().GetResult();
             Console.WriteLine($"Access token: {accessToken.AccessToken}");
         }
