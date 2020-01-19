@@ -12,6 +12,7 @@ namespace Executable
         static void Main(string[] args)
         {
             MockPs.Main();
+            System.Diagnostics.Debug.WriteLine("Pause");
         }
     }
 }
