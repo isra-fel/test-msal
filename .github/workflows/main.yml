@@ -1,0 +1,32 @@
+# This workflow will triage pull requests and apply labels.
+# 'Do Not Squash :no_entry_sign:' will be added if the base branch is not master
+
+name: Labeler
+on: pull_request
+
+jobs:
+  label:
+    name: 'Add label'
+    runs-on: ubuntu-latest
+    steps:
+      - name: 'Add do not squash label '
+        uses: actions/github-script@0.9.0
+        with:
+          github-token: ${{secrets.GITHUB_TOKEN}}
+          script: |
+            github.pulls
+              .get({
+                  owner: context.repo.owner,
+                  number: context.issue.number,
+                  repo: context.repo.repo,
+              })
+              .then((pr) => {
+                  if (pr.data.base.ref !== 'master') {
+                      github.issues.addLabels({
+                          issue_number: context.issue.number,
+                          owner: context.repo.owner,
+                          repo: context.repo.repo,
+                          labels: ['Do Not Squash :no_entry_sign:'],
+                      });
+                  }
+              })
