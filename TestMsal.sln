@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TestMsal", "TestMsal\TestMs
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Executable", "Executable\Executable.csproj", "{771282BD-5CEA-462D-98E7-31FF069AE6E5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CacheSpToken", "CacheSpToken\CacheSpToken.csproj", "{89C7ED18-9A35-4EB2-BDEC-6B2AD619B6E4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{771282BD-5CEA-462D-98E7-31FF069AE6E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{771282BD-5CEA-462D-98E7-31FF069AE6E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{771282BD-5CEA-462D-98E7-31FF069AE6E5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{89C7ED18-9A35-4EB2-BDEC-6B2AD619B6E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{89C7ED18-9A35-4EB2-BDEC-6B2AD619B6E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{89C7ED18-9A35-4EB2-BDEC-6B2AD619B6E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{89C7ED18-9A35-4EB2-BDEC-6B2AD619B6E4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
